@@ -14,7 +14,7 @@ PUSHING YOUR CHANGES:
 3. `git pull origin next_release`   <-- (in case anyone made any changes while you were working)
 4. `git add .`
 5. `git commit -m "your commit message here"`
-6. `git push`   	<-- you should be pushing to your branch. From there, you can request to merge your changes into next_release on GitHub
+6. `git push origin your_name`   	<-- you should be pushing to your branch. From there, you can request to merge your changes into next_release on GitHub
 
 
 INITIAL SETUP:
