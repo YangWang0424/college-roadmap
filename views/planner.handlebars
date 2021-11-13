@@ -1,0 +1,293 @@
+
+<section>
+    <div class="container">
+        <h1>Planner</h1>
+    </div>
+</section>
+<div class="container">
+    <div id="findPlan" class="generic-form" >
+        <h2></h2>
+        <form id="search">
+            <label for="years">Years: </label>	
+            <select id="years" name="years">
+                <option disabled hidden selected> - </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+                <option value="6"> 6 </option>
+                <option value="7"> 7 </option>
+            </select><br>
+            <label for="major">Major: </label>
+            <select id="major" name="major">
+                <option value="cs"> Computer Science Undergraduate </option>
+                <option disabled> more majors will be listed here </option>
+            </select><br>	
+            <label for="major">Option: </label>
+            <select id="option" name="option">
+                <option value="systems"> Computer Science Systems Option </option>
+                <option disabled> more options will be listed here </option>
+            </select><br>	
+            <p>Other choices here...</p>
+            <br>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</div>
+<!--<div class="container">
+    <div id="message"></div>
+    <div id="dataList"></div>
+</div>-->
+<!--<script id="data-template" type="text/x-handlebars-template">-->
+    <!--\{{#if resultData}}-->
+    <!--<h2>Your Plan:</h2>-->
+    <table id="dataDetails" class="planner">
+      <thead>
+        <th>Fall</th>
+        <th>Cr.</th>
+        <th>Winter</th>
+        <th>Cr.</th>
+        <th>Spring</th>
+        <th>Cr.</th>
+        <th>Summer</th>
+        <th>Cr.</th>
+      </thead>
+      <tbody> 
+          <!--\{{#each resultData}}-->
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td></td> <!--F Course-->
+            <td></td> <!--F Credits-->
+
+            <td></td> <!-- W Course-->
+            <td></td> <!--W Credits-->
+
+            <td></td> <!--Sp Course-->
+            <td></td> <!--Sp Credits-->
+
+            <td></td> <!--Su Course-->
+            <td></td> <!--Su Credits-->
+        </tr>
+        <!--\{{/each}}-->
+      </tbody>
+    </table>
+    <!--\{{/if}}-->
+<!--</script>-->
+
+<table id="dataDetails" class="planner">
+      <thead>
+        <th>Fall</th>
+        <th>Cr.</th>
+        <th>Winter</th>
+        <th>Cr.</th>
+        <th>Spring</th>
+        <th>Cr.</th>
+        <th>Summer</th>
+        <th>Cr.</th>
+      </thead>
+      <tbody> 
+          <!--\{{#each resultData}}-->
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td></td> <!--F Course-->
+            <td></td> <!--F Credits-->
+
+            <td></td> <!-- W Course-->
+            <td></td> <!--W Credits-->
+
+            <td></td> <!--Sp Course-->
+            <td></td> <!--Sp Credits-->
+
+            <td></td> <!--Su Course-->
+            <td></td> <!--Su Credits-->
+        </tr>
+        <!--\{{/each}}-->
+      </tbody>
+    </table>
+
+    <table id="dataDetails" class="planner">
+      <thead>
+        <th>Fall</th>
+        <th>Cr.</th>
+        <th>Winter</th>
+        <th>Cr.</th>
+        <th>Spring</th>
+        <th>Cr.</th>
+        <th>Summer</th>
+        <th>Cr.</th>
+      </thead>
+      <tbody> 
+          <!--\{{#each resultData}}-->
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td>AA ###</td> <!--F Course-->
+            <td>4</td> <!--F Credits-->
+
+            <td>AA ###</td> <!-- W Course-->
+            <td>4</td> <!--W Credits-->
+
+            <td>AA ###</td> <!--Sp Course-->
+            <td>4</td> <!--Sp Credits-->
+
+            <td>AA ###</td> <!--Su Course-->
+            <td>4</td> <!--Su Credits-->
+        </tr>
+        <tr>
+            <td></td> <!--F Course-->
+            <td></td> <!--F Credits-->
+
+            <td></td> <!-- W Course-->
+            <td></td> <!--W Credits-->
+
+            <td></td> <!--Sp Course-->
+            <td></td> <!--Sp Credits-->
+
+            <td></td> <!--Su Course-->
+            <td></td> <!--Su Credits-->
+        </tr>
+        <!--\{{/each}}-->
+      </tbody>
+    </table>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/planner.js"></script>
