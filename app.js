@@ -55,6 +55,9 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/planner', (req, res) => {
+  res.render('planner');
+});
 
 // Listen to port 8080
 const PORT = 8080;
