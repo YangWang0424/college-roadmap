@@ -1,0 +1,22 @@
+
+<section>
+    <div class="container text-center">
+        <h1>Selected Page</h1>
+    </div>
+</section>
+
+
+<div class="container">
+    <div class="row">
+        <div style="width: 100%; max-width: 530px; padding: 15px; margin: auto;">
+            <ul class="list-group">
+                {{#each courses}}
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        {{this}}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>

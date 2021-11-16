@@ -25,11 +25,11 @@ Where these are .js files in the handlers folder (ex: course.js)
 const app = express();
 
 // Set app to use the Handlebars engine
-app.set('view engine', 'handlebars');
 app.engine('handlebars', hb({
     layoutsDir: __dirname + '/views/layouts',
     partialsDir: __dirname + '/views/partials'
 }));
+app.set('view engine', 'handlebars');
 app.set('view options', {
     layout: 'main'
 });
@@ -58,6 +58,26 @@ app.get('/', (req, res) => {
 app.get('/planner', (req, res) => {
   res.render('planner');
 });
+
+
+app.get('/choosemajor', (req, res) => {
+    res.render('choosemajor');
+});
+
+app.get('/majordetail', (req, res) => {
+    res.render('majordetail', {major:req.query.major});
+
+});
+
+app.locals.selectedcourses = []
+app.get('/selected', (req, res) => {
+    if (app.locals.selectedcourses.indexOf(req.query.course) === -1 ){
+        app.locals.selectedcourses.push(req.query.course)
+    }
+    res.render('selected', {courses: app.locals.selectedcourses});
+
+});
+
 
 // Listen to port 8080
 const PORT = 8080;
