@@ -201,3 +201,96 @@ section {
 /*====================================
 	
 ====================================*/
+
+
+.flex-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-center {
+  align-items: center;
+}
+
+.flex-left {
+  align-items: flex-start;
+}
+
+.flex-right {
+  align-items: flex-end;
+}
+
+.flex-middle {
+  justify-content: center;
+}
+
+.flex-bottom {
+  justify-content: flex-end;
+}
+
+.flex-top {
+  justify-content: flex-start;
+}
+
+.flex-between {
+  justify-content: space-between !important;
+}
+
+.flex-shrink {
+  flex-shrink: 0;
+}
+
+.flex-con {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.flex-vertical {
+  -webkit-box-orient: vertical;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+
+.list-group li{
+    margin-bottom: 5px;
+}
+
+.list-group img{
+    /* margin-right: 10px; */
+}
+
+.list-group .list-group-item{
+    padding:5px 15px !important;
+}
+
+
+.align-right{
+    color: #000;
+    font-size: 18px;
+    /* margin-: 5px; */
+}
+
+.list-item-box{
+    cursor: pointer;
+    min-width: 18rem;
+}
+
+.list-group-item{
+    text-align: center
+}
+
+.nav-pills, .footer-box{
+    background-color:#f2dede;
+}
+
+.navbar-brand{
+    margin-left: 0!important;
+    height:auto;
+}
