@@ -6,8 +6,8 @@
 // Main depencies
 const parser = require('body-parser');
 const express = require('express');
-const hb = require('express-handlebars');
 //const session = require('express-session');         // Not sure if we will use this?
+const nunjucks = require('nunjucks')
 
 // Handlers for database entities
 /* What this might look like later:
@@ -24,15 +24,12 @@ Where these are .js files in the handlers folder (ex: course.js)
 // Initialize the express server
 const app = express();
 
-// Set app to use the Handlebars engine
-app.engine('handlebars', hb({
-    layoutsDir: __dirname + '/views/layouts',
-    partialsDir: __dirname + '/views/partials'
-}));
-app.set('view engine', 'handlebars');
-app.set('view options', {
-    layout: 'main'
-});
+// Set app to use the nunjucks engine
+nunjucks.configure('views', {
+    autoescape: true,
+    express: app
+})
+app.set('view engine', 'html')
 
 // Pull all style files from the public directory
 app.use(express.static('public'));
@@ -55,14 +52,30 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/planner', (req, res) => {
-  res.render('planner');
+app.get('/signin', (req, res) => {
+    res.render('signin');
 });
+
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard');
+});
+
+
+app.get('/planner', (req, res) => {
+  res.render('planner.html');
+});
+
+
+app.get('/choosecourse', (req, res) => {
+    res.render('choosecourse.html');
+});
+
 
 
 app.get('/choosemajor', (req, res) => {
     res.render('choosemajor');
 });
+
 
 app.get('/majordetail', (req, res) => {
     res.render('majordetail', {major:req.query.major});
@@ -70,11 +83,11 @@ app.get('/majordetail', (req, res) => {
 });
 
 app.locals.selectedcourses = []
-app.get('/selected', (req, res) => {
+app.get('/selectedmajor', (req, res) => {
     if (app.locals.selectedcourses.indexOf(req.query.course) === -1 ){
         app.locals.selectedcourses.push(req.query.course)
     }
-    res.render('selected', {courses: app.locals.selectedcourses});
+    res.render('selectedmajor', {courses: app.locals.selectedcourses});
 
 });
 
