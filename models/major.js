@@ -11,7 +11,7 @@ const MajorSchema = new Schema({
     address:String,
     desc: String,
     // one course belongs to one department
-    department : { type: Schema.Types.ObjectId, ref: 'Department' },
+    college : { type: Schema.Types.ObjectId, ref: 'College' },
     // one major has many courses
     courses:[{type: Schema.Types.ObjectId, ref: 'Course'}],
     users:[{type: Schema.Types.ObjectId, ref: 'User'}]
