@@ -1,10 +1,14 @@
 # College Roadmap Project
 
-### main libraries
+### Main libraries
 
-    1. template engine: 
+    1. template engine: nunjucks
 
 ### How to Run
+
+install necessary packages:
+
+    npm install 
 
 for development stage, run command below:
 
@@ -37,6 +41,6 @@ then you will see json response
     | POST    |    api/major/create    |         create major |
     | GET     |      api/courses       |      get all courses |
     | GET     |     api/course/:id     |     get course by id |
-    | DELETE  | api/course/:id/delete |  delete course by id |
-    | PATCH   | api/course/:id/update |  update course by id |
-    | POST    |   api/course/create   |         create major |
+    | DELETE  | api/course/:id/delete  |  delete course by id |
+    | PATCH   | api/course/:id/update  |  update course by id |
+    | POST    |   api/course/create    |         create major |
