@@ -1,4 +1,25 @@
 {
+<<<<<<< HEAD
+  "name": "220128-node-colleage-roads",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^6.1.8",
+    "morgan": "~1.9.1",
+    "nunjucks": "^3.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+=======
     "name": "college_roadmap",
     "version": "1.0.0",
     "description": "",
@@ -16,4 +37,5 @@
         "node.js": "0.0.1-security",
         "nunjucks": "^3.2.3"
     }
+>>>>>>> main
 }
