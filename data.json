@@ -1,0 +1,248 @@
+[
+  {
+    "name": "Agricultural Science",
+    "head": "AgriculturalMan",
+    "tel": "343143141221124",
+    "address": "Agricultural Sciences",
+    "desc": "Agricultural Sciences College",
+    "majors": [
+      {
+        "name": "Agricultural and Food Business Management",
+        "head": "AgriculturalMan",
+        "tel": "343143141221124",
+        "address": "Agricultural Sciences",
+        "desc": "Agricultural Sciences College",
+        "courses": [
+          {
+            "name": "Agricultural course 101"
+          },
+          {
+            "name": "Agricultural course 102"
+          }
+        ]
+      },
+      {
+        "name": "Agricultural Science",
+        "head": "BusinessMan",
+        "tel": "12312312312312",
+        "address": "oregon USA",
+        "desc": "Business College",
+        "courses": [
+          {
+            "name": "Agricultural course 201"
+          },
+          {
+            "name": "Agricultural course 202"
+          }
+        ]
+      },
+      {
+        "name": "Animal Sciences",
+        "head": "Earth",
+        "tel": "12321312",
+        "address": "oregon USA",
+        "desc": "Earth, Ocean and Atmospheric Sciences",
+        "courses": [
+          {
+            "name": "Agricultural course 301"
+          },
+          {
+            "name": "Agricultural course 302"
+          }
+        ]
+      },
+      {
+        "name": "Biological Data Sciences",
+        "head": "Tom hanks",
+        "tel": "12312321",
+        "address": "oregon USA ",
+        "desc": "Education",
+        "courses": [
+          {
+            "name": "Agricultural course 401"
+          },
+          {
+            "name": "Agricultural course 402"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Business",
+    "head": "BusinessMan",
+    "tel": "12312312312312",
+    "address": "oregon USA",
+    "desc": "Business College",
+    "majors": [
+      {
+        "name": "Accountancy",
+        "head": "AgriculturalMan",
+        "tel": "343143141221124",
+        "address": "Agricultural Sciences",
+        "desc": "Agricultural Sciences College",
+        "courses": [
+          {
+            "name": "Accountancy course 101"
+          },
+          {
+            "name": "Accountancy course 102"
+          }
+        ]
+      },
+      {
+        "name": "Apparel Design",
+        "head": "BusinessMan",
+        "tel": "12312312312312",
+        "address": "oregon USA",
+        "desc": "Business College",
+        "courses": [
+          {
+            "name": "Design course 101"
+          },
+          {
+            "name": "Design course 102"
+          }
+        ]
+      },
+      {
+        "name": "Business Administration",
+        "head": "Earth",
+        "tel": "12321312",
+        "address": "oregon USA",
+        "desc": "Earth, Ocean and Atmospheric Sciences",
+        "courses": [
+          {
+            "name": "Business course 101"
+          },
+          {
+            "name": "Business course 102"
+          }
+        ]
+      },
+      {
+        "name": "Business Analytics",
+        "head": "Tom hanks",
+        "tel": "12312321",
+        "address": "oregon USA ",
+        "desc": "Education",
+        "courses": [
+          {
+            "name": "Analytics course 101"
+          },
+          {
+            "name": "Analytics course 102"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Earth, Ocean and Atmospheric Sciences",
+    "head": "Earth",
+    "tel": "12321312",
+    "address": "oregon USA",
+    "desc": "Earth, Ocean and Atmospheric Sciences",
+    "majors": [
+      {
+        "name": "Climate Science",
+        "head": "AgriculturalMan",
+        "tel": "343143141221124",
+        "address": "Agricultural Sciences",
+        "desc": "Agricultural Sciences College",
+        "courses": [
+          {
+            "name": "Climate course 101"
+          },
+          {
+            "name": "Climate course 102"
+          }
+        ]
+      },
+      {
+        "name": "Earth Sciences",
+        "head": "BusinessMan",
+        "tel": "12312312312312",
+        "address": "oregon USA",
+        "desc": "Business College",
+        "courses": [
+          {
+            "name": "Earth course 101"
+          },
+          {
+            "name": "Earth course 102"
+          }
+        ]
+      },
+      {
+        "name": "Environmental Sciences",
+        "head": "Earth",
+        "tel": "12321312",
+        "address": "oregon USA",
+        "desc": "Earth, Ocean and Atmospheric Sciences",
+        "courses": [
+          {
+            "name": "Environmental course 101"
+          },
+          {
+            "name": "Environmental course 102"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Education",
+    "head": "Tom hanks",
+    "tel": "12312321",
+    "address": "oregon USA ",
+    "desc": "Education",
+    "majors": [
+      {
+        "name": "Education",
+        "head": "AgriculturalMan",
+        "tel": "343143141221124",
+        "address": "Agricultural Sciences",
+        "desc": "Agricultural Sciences College",
+        "courses": [
+          {
+            "name": "Education course 101"
+          },
+          {
+            "name": "Education course 102"
+          }
+        ]
+      },
+      {
+        "name": "Elementary Education",
+        "head": "BusinessMan",
+        "tel": "12312312312312",
+        "address": "oregon USA",
+        "desc": "Business College",
+        "courses": [
+          {
+            "name": "Elementary course 101"
+          },
+          {
+            "name": "Elementary course 102"
+          }
+        ]
+      },
+      {
+        "name": "University Exploratory Studies",
+        "head": "Earth",
+        "tel": "12321312",
+        "address": "oregon USA",
+        "desc": "Earth, Ocean and Atmospheric Sciences",
+        "courses": [
+          {
+            "name": "Exploratory Studies course 101"
+          },
+          {
+            "name": "Exploratory Studies course 102"
+          }
+        ]
+      }
+    ]
+  }
+]
