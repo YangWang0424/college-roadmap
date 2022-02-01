@@ -1,5 +1,6 @@
 # College Roadmap Project
 
+
 ### Main libraries
 
     1. template engine: nunjucks
@@ -44,3 +45,4 @@ then you will see json response
     | DELETE  | api/course/:id/delete  |  delete course by id |
     | PATCH   | api/course/:id/update  |  update course by id |
     | POST    |   api/course/create    |         create major |
+
