@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 // 定义一个模式
 const Schema = mongoose.Schema;
 
-const DepartmentSchema = new Schema({
+const CollegeSchema = new Schema({
     name:String,
     head:String,
     tel:String,
@@ -15,4 +15,4 @@ const DepartmentSchema = new Schema({
 });
 
 // 导出函数来创建 "SomeModel" 模型类
-module.exports = mongoose.model('Department', DepartmentSchema );
+module.exports = mongoose.model('College', CollegeSchema );
