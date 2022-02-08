@@ -1,0 +1,46 @@
+body {
+    background-image: url("background.jpg");
+}
+  
+h1 {
+    color: navy;
+    margin-left: 20px;
+    text-align: center;
+    font-size: 80px;
+}
+div{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+ul{
+    text-align: center;
+    font-size: 40px;
+    color: navy;
+    position: absolute;
+    top: .2%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+img {
+    width:2480px;
+    height:1700px;
+}
+p{
+    text-align: center;
+    font-size: 40px;
+    color: navy;
+}
+ol{
+    text-align: center;
+    font-size: 70px;
+    color: navy;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
