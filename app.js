@@ -4,10 +4,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const  nunjucks = require('nunjucks')
-
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+var flash = require('connect-flash');
+const session = require('express-session');         // Not sure if we will use this?
+const indexRouter = require('./routes/indexRouter');
+const usersRouter = require('./routes/userRouter');
 const apiRouter = require('./routes/api');
+const authRouter = require('./routes/authRouter');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
 
@@ -20,7 +24,15 @@ nunjucks.configure(path.resolve(__dirname,'templates'),{
   noCache:false,
   watch:true
 });
-// app.set('view engine', 'pug');
+
+// passport config
+var User = require('./models/user');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+
 
 // 导入 mongoose 模块
 const mongoose = require('mongoose');
@@ -45,9 +57,31 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// flash messages
+app.use(session({
+  name : 'codeil',
+  secret : 'something',
+  resave :false,
+  saveUninitialized: true,
+  cookie : {
+    maxAge:(86400)
+  }
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
+app.use('/auth', authRouter);
 
 
 // catch 404 and forward to error handler
@@ -66,6 +100,11 @@ app.use(function(err, req, res, next) {
   res.render('error.html', {err:err});
 });
 
+
+
+
+
+app.locals.selectedcourses = []
 
 
 
