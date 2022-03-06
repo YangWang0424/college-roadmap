@@ -2,27 +2,35 @@ var express = require('express');
 var router = express.Router();
 const User = require("../models/user");
 var passport = require('passport');
-var LocalStrategy = require('passport-local');
-var crypto = require('crypto');
 var helper = require("../util/helper")
 
 
-
-
-
-
-
 /* GET users login. */
-router.get('/login', function(req, res, next) {
+router.get('/login',  function(req, res, next) {
     res.render('login', {error:req.flash('error'), success:req.flash('success') });
 });
 
 
-router.post('/login', passport.authenticate("local",{
-    successRedirect: "/",
-    failureRedirect: "/auth/login"
-}), function(req, res){
+router.post('/login', function (req, res) {
+    passport.authenticate('local', function(err, user) {
+        if (err) {
+            req.flash('error', err);
+            return res.redirect('/auth/login');
+        }
+        if (!user) {
+            req.flash('error', 'not such user!')
+            return res.redirect('/auth/login');
+        }
 
+        req.login(user, function(err){
+            if (err) {
+                req.flash('error', err);
+                return res.redirect('/auth/login');
+            }
+            req.flash('success', 'login success!')
+            res.redirect('/');
+        });
+    })(req, res)
 });
 
 // Logout

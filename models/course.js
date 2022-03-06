@@ -8,8 +8,8 @@ const CourseSchema = new Schema({
     name:String,
     desc:String,
     major : { type: Schema.Types.ObjectId, ref: 'Major' },
-    users:[{type: Schema.Types.ObjectId, ref: 'User'}]
-
+    users:[{type: Schema.Types.ObjectId, ref: 'User'}],
+    credit: Number
 });
 
 // 导出函数来创建 "SomeModel" 模型类

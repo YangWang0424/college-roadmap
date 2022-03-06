@@ -5,71 +5,87 @@
 {% block content %}
 <div class="container py-4">
     <div class="row mb-3">
-            <a class="col btn btn-secondary btn-lg me-2 disabled" href="/choosemajor">Choose Major</a>
-            <a class="col btn btn-primary btn-lg me-2" href="/planner">Course Planner</a>
-            <a class="col btn btn-success btn-lg" href="">My Degrees</a>
-    </div>
-    <div class="row">
-        <div class="card text-center">
-            <div class="card-header">
-                My Profile
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Student: XYZ</h5>
-                <span class="badge bg-primary">Student ID: 9123129119</span>
-                <span class="badge bg-secondary">Degree: Bachelor of Science</span>
-                <span class="badge bg-success">Level: Undergraduate</span>
-                <span class="badge bg-danger">Class Standing: Senior</span>
-                <span class="badge bg-warning text-dark">Major Computer Science</span>
-                <span class="badge bg-info text-dark">Degree BS, College of Engineering</span>
-                <span class="badge bg-light text-dark">Campus Oregon State - Corvallis</span>
-                <span class="badge bg-dark">International Student: Y</span>
-            </div>
-            <div class="card-footer text-muted">
-                Last Logined: 2 days ago
-            </div>
-        </div>
-    </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Navigation</div>
+                    <div class="list-group">
+                        <a href="/planner" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                                <div>
+                                    <h6 class="mb-0">Course Planner</h6>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/planner" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                                <div>
+                                    <h6 class="mb-0">My Degrees</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
 
-    <div class="row">
-        <div class="card text-center mt-5">
-            <div class="card-header">
-                Current Semester : Fall 2019
-            </div>
-            <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Course</th>
-                        <th scope="col">Progress</th>
-                        <th scope="col">Cr.</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>CS 188</td>
-                        <td>in progress</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Math 120</td>
-                        <td>in progress</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">total</td>
-                        <td>18</td>
-                    </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
 
+        <div class="col-md-8">
+            <div class="card text-center">
+                <div class="card-header">
+                    My Profile
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Student: {{ user.username}}</h5>
+                    <span class="badge bg-primary">Student ID: {{ user.id}}</span>
+                    <span class="badge bg-warning text-dark">Major: {{ user.major.name }}</span>
+                </div>
+                <div class="card-footer text-muted">
+                    Account Created At: {{ user.createdAt }}
+                </div>
+            </div>
+
+            <div class="card text-center mt-5">
+                <div class="card-header">
+                    Current Courses Selected
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Course</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Credit.</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% set x = 0 %}
+                        {% set count = 1 %}
+
+                        {% for c in user.courses %}
+                            <tr>
+                                <th scope="row">{{ loop.index }}</th>
+                                <td>{{ c.name }}</td>
+                                <td>{{ c.desc }}</td>
+                                <td>{{ c.credit }}</td>
+                            </tr>
+                            {% set x = x + c.credit %}
+                            {% set count = loop.index +1 %}
+                        {% endfor %}
+
+                        <tr>
+                            <th scope="row">{{count}}</th>
+                            <td colspan="2">total</td>
+                            <td>{{x}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </div>
+
+
 
 
 

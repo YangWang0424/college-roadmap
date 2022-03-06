@@ -4,6 +4,9 @@
 
 {% block content %}
 <div class="container py-4">
+    <div class="row mb-3 text-center">
+        <h3> Major: {{ user.major.name }}</h3>
+    </div>
     <div class="row mb-3">
         <a class="col btn btn-primary btn-lg me-2" href="/planner">All Courses</a>
         <a class="col btn btn-outline-secondary btn-lg me-2" href="/choosecourse">Choose Courses</a>
@@ -11,229 +14,31 @@
 
     <div class="row">
         <div class="card text-center mt-5">
-            <div class="card-header">
-                Current Semester : Fall 2019
-            </div>
             <div class="card-body">
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Course</th>
-                        <th scope="col">Progress</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Cr.</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>CS 188</td>
-                        <td>in progress</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Math 120</td>
-                        <td>in progress</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">total</td>
-                        <td>18</td>
-                    </tr>
+                        {% for c in major.courses %}
+                            <tr>
+                                <th scope="row">{{ loop.index }}</th>
+                                <td>{{ c.name}}</td>
+                                <td>{{ c.desc}}</td>
+                                <td>{{ c.credit}}</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
-        <div class="card text-center mt-5">
-            <div class="card-header">
-                Current Semester : Winter 2019
-            </div>
-            <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Course</th>
-                        <th scope="col">Progress</th>
-                        <th scope="col">Cr.</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>CS 188</td>
-                        <td>in progress</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Math 120</td>
-                        <td>in progress</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">total</td>
-                        <td>18</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="card text-center mt-5">
-            <div class="card-header">
-                Current Semester : Fall 2020
-            </div>
-            <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Course</th>
-                        <th scope="col">Progress</th>
-                        <th scope="col">Cr.</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>CS 188</td>
-                        <td>in progress</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Math 120</td>
-                        <td>in progress</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">total</td>
-                        <td>18</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="card text-center mt-5">
-            <div class="card-header">
-                Current Semester : Winter 2020
-            </div>
-            <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Course</th>
-                        <th scope="col">Progress</th>
-                        <th scope="col">Cr.</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>CS 188</td>
-                        <td>in progress</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Math 120</td>
-                        <td>in progress</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">total</td>
-                        <td>18</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="card text-center mt-5">
-            <div class="card-header">
-                Current Semester : Fall 2021
-            </div>
-            <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Course</th>
-                        <th scope="col">Progress</th>
-                        <th scope="col">Cr.</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>CS 188</td>
-                        <td>in progress</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Math 120</td>
-                        <td>in progress</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">total</td>
-                        <td>18</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="card text-center mt-5">
-            <div class="card-header">
-                Current Semester : Winter 2021
-            </div>
-            <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Course</th>
-                        <th scope="col">Progress</th>
-                        <th scope="col">Cr.</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>CS 188</td>
-                        <td>in progress</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Math 120</td>
-                        <td>in progress</td>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">total</td>
-                        <td>18</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
     </div>
 
-
-
-    <footer class="pt-3 mt-4 text-muted border-top">
-        &copy; 2021
-    </footer>
 </div>
 
 {% endblock %}

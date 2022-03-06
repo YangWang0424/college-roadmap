@@ -17,19 +17,6 @@
     <form class="mt-5" method="post">
 
       <h1 class="h3 mb-3">Log In</h1>
-      {% if error |length  %}
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Holy guacamole!</strong> {{ error }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      {% endif  %}
-
-      {% if success |length  %}
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Holy guacamole!</strong> {{ success }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      {% endif  %}
       <div class="form-floating mb-3">
         <input type="text" class="form-control" id="username"    name="username">
         <label for="username">Username</label>

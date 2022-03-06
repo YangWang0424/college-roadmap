@@ -8,14 +8,14 @@ const router = express.Router();
 const collegeController = require("../controllers/collegeController");
 
 /* GET home page. */
-router.get('/',  async function (req, res, next) {
+router.get('/', Helper.isAdmin, async function (req, res, next) {
     College.find({}, function (err, colleges) {
         if (err) {req.flash("error", err)}
         res.render('admin.html', {error: req.flash('error'), success: req.flash('success'), colleges:colleges});
     });
 });
 
-router.get("/delete_college/:instanceID",  function (req, res) {
+router.get("/delete_college/:instanceID", Helper.isAdmin,   function (req, res) {
     College.deleteOne({ _id: req.params.instanceID }, function (err) {
         if (err) {
             req.flash('error', "cant delete this item, something went wrong!")
@@ -27,7 +27,7 @@ router.get("/delete_college/:instanceID",  function (req, res) {
     });
 })
 
-router.post('/add_college',   function(req, res, next) {
+router.post('/add_college',  Helper.isAdmin,   function(req, res, next) {
     let name = req.body.name;
     let head = req.body.head;
     let tel = req.body.tel;
@@ -45,7 +45,7 @@ router.post('/add_college',   function(req, res, next) {
 });
 
 
-router.get('/majors/:collegeID',   function(req, res, next) {
+router.get('/majors/:collegeID', Helper.isAdmin,    function(req, res, next) {
     let collegeID = req.params.collegeID;
     College.findOne({_id:collegeID}, function (err, college) {
         if (err) {req.flash("error", err)}
@@ -59,7 +59,7 @@ router.get('/majors/:collegeID',   function(req, res, next) {
     });
 });
 
-router.post('/majors/:collegeID', function(req, res, next) {
+router.post('/majors/:collegeID', Helper.isAdmin, function(req, res, next) {
     let name = req.body.name;
     let head = req.body.head;
     let tel = req.body.tel;
@@ -87,7 +87,7 @@ router.post('/majors/:collegeID', function(req, res, next) {
 
 
 
-router.get('/delete_major/:collegeID/:instanceID', function(req, res, next) {
+router.get('/delete_major/:collegeID/:instanceID', Helper.isAdmin,  function(req, res, next) {
     Major.deleteOne({ _id: req.params.instanceID }, function (err) {
         if (err) {
             req.flash('error', "cant delete this item, something went wrong!")
@@ -98,7 +98,7 @@ router.get('/delete_major/:collegeID/:instanceID', function(req, res, next) {
 });
 
 
-router.get('/courses/:collegeID/:majorID',  function(req, res, next) {
+router.get('/courses/:collegeID/:majorID',  Helper.isAdmin,  function(req, res, next) {
     Major.findOne({_id: req.params.majorID}).populate("college").populate("courses").exec(function (err, major) {
         if (err) {
             req.flash('error', "cant find major, something went wrong!")
@@ -115,9 +115,10 @@ router.get('/courses/:collegeID/:majorID',  function(req, res, next) {
 
 
 
-router.post('/courses/:collegeID/:majorID',  function(req, res, next) {
+router.post('/courses/:collegeID/:majorID',   Helper.isAdmin, function(req, res, next) {
     let name = req.body.name;
     let desc = req.body.desc;
+    let credit = req.body.credit;
 
     Major.findOne({_id: req.params.majorID}, function (err, major) {
         if (err) {
@@ -125,7 +126,7 @@ router.post('/courses/:collegeID/:majorID',  function(req, res, next) {
             res.redirect("/admin");
         }
 
-        Course.create({name: name, desc: desc}, function (err, course) {
+        Course.create({name: name, desc: desc, credit:credit}, function (err, course) {
             if (err) {
                 req.flash('error', "cant create this item, something went wrong!");
             }
@@ -143,7 +144,7 @@ router.post('/courses/:collegeID/:majorID',  function(req, res, next) {
     });
 })
 
-router.get('/delete_course/:majorID/:courseID', function(req, res, next) {
+router.get('/delete_course/:majorID/:courseID',  Helper.isAdmin, function(req, res, next) {
 
     Major.findOne({_id: req.params.majorID}, function (err, major) {
         if (err) {
@@ -167,7 +168,7 @@ router.get('/delete_course/:majorID/:courseID', function(req, res, next) {
 });
 
 
-router.get("/edit_college/:instanceID", function (req,res) {
+router.get("/edit_college/:instanceID",  Helper.isAdmin, function (req,res) {
     College.findOne({_id: req.params.instanceID}, function (err, college){
         if (err) {
             req.flash('error', "cant find this college, something went wrong!");
@@ -176,7 +177,7 @@ router.get("/edit_college/:instanceID", function (req,res) {
     })
 })
 
-router.post("/edit_college/:instanceID", function (req,res) {
+router.post("/edit_college/:instanceID",  Helper.isAdmin, function (req,res) {
     let name = req.body.name;
     let head = req.body.head;
     let tel = req.body.tel;
@@ -193,7 +194,7 @@ router.post("/edit_college/:instanceID", function (req,res) {
 })
 
 
-router.get("/edit_major/:collegeID/:majorID", function (req,res) {
+router.get("/edit_major/:collegeID/:majorID",  Helper.isAdmin, function (req,res) {
     Major.findOne({_id: req.params.majorID}, function (err, major){
         if (err) {
             req.flash('error', "cant find this major, something went wrong!");
@@ -202,7 +203,7 @@ router.get("/edit_major/:collegeID/:majorID", function (req,res) {
     })
 })
 
-router.post("/edit_major/:collegeID/:majorID", function (req,res) {
+router.post("/edit_major/:collegeID/:majorID",  Helper.isAdmin, function (req,res) {
     let name = req.body.name;
     let head = req.body.head;
     let tel = req.body.tel;
@@ -219,7 +220,7 @@ router.post("/edit_major/:collegeID/:majorID", function (req,res) {
 })
 
 
-router.get("/edit_course/:collegeID/:majorID/:courseID", function (req,res) {
+router.get("/edit_course/:collegeID/:majorID/:courseID", Helper.isAdmin,  function (req,res) {
     Course.findOne({_id: req.params.courseID}, function (err, course){
         if (err) {
             req.flash('error', "cant find this major, something went wrong!");
@@ -228,11 +229,12 @@ router.get("/edit_course/:collegeID/:majorID/:courseID", function (req,res) {
     })
 })
 
-router.post("/edit_course/:collegeID/:majorID/:courseID", function (req,res) {
+router.post("/edit_course/:collegeID/:majorID/:courseID", Helper.isAdmin,  function (req,res) {
     let name = req.body.name;
     let desc = req.body.desc;
+    let credit = req.body.credit;
 
-    Course.findOneAndUpdate({_id: req.params.courseID},{ name:name, desc:desc}, function (err, course){
+    Course.findOneAndUpdate({_id: req.params.courseID},{ name:name, desc:desc, credit:credit}, function (err, course){
         if (err) {
             req.flash('error', err);
         }

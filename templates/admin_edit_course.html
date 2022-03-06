@@ -34,13 +34,17 @@
                         <div class="col-sm-12">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" value="{{course.name}}">
-                            <div id="nameHelper" class="form-text">Enter Major Name.</div>
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="desc" class="form-label">Description</label>
                         <textarea class="form-control" id="desc" name="desc" rows="3" value="{{course.desc}}" ></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="credit" class="form-label">Credit</label>
+                        <input type="number" class="form-control" id="credit" name="credit" aria-describedby="creditHelp" value="{{course.credit}}">
                     </div>
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Update Now</button>

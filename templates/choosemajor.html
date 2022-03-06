@@ -72,37 +72,19 @@
 {% block content %}
 <div class="container py-4">
     <div class="row mb-3">
-        <a class="col btn btn-primary btn-lg me-2 " href="/choosemajor">1.Choose Major</a>
-        <a class="col btn btn-outline-secondary btn-lg me-2" href="/majordetail">2.Major Detail</a>
-        <a class="col btn btn-outline-secondary btn-lg disabled" href="">3.Selected Major</a>
+        <button class="col btn btn-primary btn-lg me-2 ">1.Choose Major</button>
+        <button class="col btn btn-outline-secondary btn-lg me-2 disabled" >2.Major Detail</button>
+        <button class="col btn btn-outline-secondary btn-lg disabled" >3.Selected Major</button>
     </div>
     <div class="row">
         <div class="list-group list-group-checkable">
-            <input class="list-group-item-check" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios1" value="" checked="">
-            <label class="list-group-item py-3" for="listGroupCheckableRadios1">
-                Mathmatics
-                <span class="d-block small opacity-50">With support text underneath to add more detail</span>
-            </label>
-
-            <input class="list-group-item-check" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios2" value="">
-            <label class="list-group-item py-3" for="listGroupCheckableRadios2">
-                Bilogical Science
-                <span class="d-block small opacity-50">Some other text goes here</span>
-            </label>
-
-            <input class="list-group-item-check" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios3" value="">
-            <label class="list-group-item py-3" for="listGroupCheckableRadios3">
-                Cultural diversity
-                <span class="d-block small opacity-50">And we end with another snippet of text</span>
-            </label>
-
-            <input class="list-group-item-check" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios4" value="">
-            <label class="list-group-item py-3" for="listGroupCheckableRadios4">
-                Computer Science
-                <span class="d-block small opacity-50">And we end with another snippet of text</span>
-            </label>
-
-
+            {% for m in majors %}
+                <input class="list-group-item-check" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios2" value="">
+                <a href="/majordetail/{{m.id}}" class="list-group-item py-3" for="listGroupCheckableRadios2">
+                    {{ m.name }}
+                    <span class="d-block small opacity-50">{{ m.desc }}</span>
+                </a>
+            {% endfor %}
         </div>
     </div>
 
@@ -110,9 +92,6 @@
 
 
 
-    <footer class="pt-3 mt-4 text-muted border-top">
-        &copy; 2021
-    </footer>
 </div>
 
 {% endblock %}

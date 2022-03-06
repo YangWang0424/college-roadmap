@@ -11,84 +11,79 @@
     <div class="row pt-3">
         <div class="col-md-6 col-lg-6">
 
-            <form class="needs-validation" novalidate="">
-                    <div class="row g-3">
-                        <div class="col-md-12">
-                            <label for="country" class="form-label">Semester</label>
-                            <select class="form-select" id="country" required="">
-                                <option value="">Choose...</option>
-                                <option>Winter 2019</option>
-                                <option>Fall 2020</option>
-                                <option>Winter 2020</option>
-                                <option>Fall 2021</option>
-                                <option>Winter 2021</option>
-                                <option>Fall 2022</option>
-                            </select>
-                        </div>
-                    </div>
-            </form>
-
             <div class="row">
                 <div class="col-md-12 py-3">
-                    <button type="button" class="btn btn-light my-2">Math AAA</button>
-                    <button type="button" class="btn btn-secondary my-2">Math 123</button>
-                    <button type="button" class="btn btn-light my-2">CS BBB</button>
-                    <button type="button" class="btn btn-secondary my-2">CS 100</button>
-                    <button type="button" class="btn btn-light my-2">Cloud Computing</button>
-                    <button type="button" class="btn btn-secondary my-2">MATH 333</button>
-                    <button type="button" class="btn btn-light my-2">DataBase 123</button>
-                    <button type="button" class="btn btn-light my-2">NetWork 123</button>
-                    <button type="button" class="btn btn-light my-2">NLP 123</button>
-                    <button type="button" class="btn btn-light my-2">NLP 444</button>
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-primary">All Courses</span>
+                    </h4>
+
+                    {% for c in major.courses %}
+                        <button type="button" class="btn btn-light my-2 courses" id="{{c.id}}" data-name="{{c.name}}"
+                                data-courseid="{{c.id}}" data-desc="{{c.desc}}">{{c.name}}</button>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>
         <div class="col-md-6 col-lg-6 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-primary">Selected Courses</span>
-                <span class="badge bg-primary rounded-pill">3</span>
             </h4>
-            <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Math 123</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">2</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">CS 100</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">MATH 333</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (Cr.)</span>
-                    <strong>15</strong>
-                </li>
-            </ul>
 
-            <form class="card p-2">
-                <button class="w-100 btn btn-primary btn-lg" type="submit">Save Courses</button>
+
+            <form class="card p-2" id="form" method="post">
+                <ul class="list-group mb-3" id="selectedList">
+
+                </ul>
+                <input name="courseInputID" id="courseInputID" value="" hidden>
+                <button class="w-100 btn btn-primary btn-lg" type="submit">Choose Courses</button>
             </form>
         </div>
     </div>
 
 
-    <footer class="pt-3 mt-4 text-muted border-top">
-        &copy; 2021
-    </footer>
 </div>
 
 {% endblock %}
 
 
+{% block script %}
+<script>
+    var buttons = document.getElementsByClassName("courses");
+    var courseId = [];
+    var selectedList = document.getElementById("selectedList");
+    var courseInputID = document.getElementById("courseInputID");
 
+
+    for (var i=0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function (e) {
+            var classStr = e.currentTarget.className;
+            if (classStr.includes("light")){
+                e.currentTarget.className = "btn btn-success my-2 courses";
+            }else{
+                e.currentTarget.className = "btn btn-light my-2 courses";
+            }
+            addToSelectedCourseList();
+        })
+    }
+
+    function addToSelectedCourseList(){
+        var content = "";
+        courseId = [];
+        for (var i=0; i < buttons.length; i++) {
+            if (buttons[i].classList.contains("btn-success")) {
+                content += "                <li class=\"list-group-item d-flex justify-content-between lh-sm\">\n" +
+                    "                    <div>\n" +
+                    "                        <h6 class=\"my-0\">"+ buttons[i].dataset.name  +"</h6>\n" +
+                    "                        <small class=\"text-muted\">"+ buttons[i].dataset.desc  +"</small>\n" +
+                    "                    </div>\n" +
+                    "                </li>";
+                courseId.push(buttons[i].dataset.courseid);
+            }
+        }
+        selectedList.innerHTML = content;
+        courseInputID.setAttribute("value", courseId.join(" "));
+    }
+
+</script>
+{% endblock %}

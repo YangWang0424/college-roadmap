@@ -45,6 +45,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">desc</th>
+                    <th scope="col">credit</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -54,6 +55,7 @@
                     <th scope="row">{{loop.index}}</th>
                     <td>{{ c.name }}</td>
                     <td>{{ c.desc }}</td>
+                    <td>{{ c.credit }}</td>
                     <td>
                         <a href="/admin/edit_course/{{ college.id}}/{{ major.id}}/{{ c.id}}" class="btn btn-sm btn-success">Edit</a>
                         <a href="/admin/delete_course/{{ major.id}}/{{ c.id}}" class="btn btn-sm btn-danger">Delete</a>
@@ -75,7 +77,12 @@
                     <div class="mb-3">
                         <label for="desc" class="form-label">Course Desc</label>
                         <input type="text" class="form-control" id="desc" name="desc" aria-describedby="emailHelp">
-                        <div id="descHelper" class="form-text">Enter Course Name.</div>
+                        <div id="descHelper" class="form-text">Enter Desc.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="credit" class="form-label">Course Credit</label>
+                        <input type="text" class="form-control" id="credit" name="credit" aria-describedby="creditHelp">
+                        <div id="creditHelper" class="form-text">Enter Credit.</div>
                     </div>
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Submit</button>
