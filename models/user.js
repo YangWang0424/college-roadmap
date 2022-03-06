@@ -7,8 +7,8 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
         {
-            username:  {type:  String, trim:  true, index: { unique: true } },
-            email: {type:  String,  trim:  true, lowercase:  true},
+            username:  {type:  String, trim:  true },
+            email : { type: String},
             major : { type: Schema.Types.ObjectId, ref: 'Major' },
             courses: [{type: Schema.Types.ObjectId, ref: 'Course'}]
         },

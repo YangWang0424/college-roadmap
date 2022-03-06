@@ -17,3 +17,18 @@ exports.isLoggedIn = function (req, res, next){
 
     res.redirect("/");
 }
+
+
+// check isLoggedIn
+exports.isAdmin = function (req, res, next){
+    if(req.isAuthenticated()){
+        if(req.user.username === "admin"){
+            return next();
+        }else{
+            req.flash('error', 'you dont have permission to view this page!')
+        }
+    }
+    req.flash('error', 'you have to login first')
+
+    res.redirect("/");
+}

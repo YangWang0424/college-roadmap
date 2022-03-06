@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card p-3">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="/admin" class="nav-link active" aria-current="page">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                            Admin Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/add_college" class="nav-link">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                            All Users
+                        </a>
+                    </li>
+<!--                    <li>-->
+<!--                        <a href="/admin/add_college" class="nav-link">-->
+<!--                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>-->
+<!--                            Add College-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="/admin/add_major" class="nav-link link-dark">-->
+<!--                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>-->
+<!--                            Add Major-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="/admin/add_course" class="nav-link link-dark">-->
+<!--                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>-->
+<!--                            Add Course-->
+<!--                        </a>-->
+<!--                    </li>-->
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <h3>All Colleges</h3>
+            <table class="table  table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Head</th>
+                    <th scope="col">Tel</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Desc</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for c in colleges %}
+                        <tr>
+                            <th scope="row">{{loop.index}}</th>
+                            <td>{{ c.name }}</td>
+                            <td>{{ c.head }}</td>
+                            <td>{{ c.tel }}</td>
+                            <td>{{ c.address }}</td>
+                            <td>{{ c.desc }}</td>
+                            <td>
+                                <a href="/admin/edit_college/{{ c.id}}" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/admin/majors/{{ c.id}}" class="btn btn-sm btn-success">Majors</a>
+                                <a href="/admin/delete_college/{{ c.id}}" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="card p-4">
+                <h6 class="mb-3">Add New College</h6>
+                <form method="post"  action="/admin/add_college">
+                    <div class="row g-3">
+                        <div class="col-sm-4">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+                            <div id="nameHelper" class="form-text">Enter Major Name.</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="tel" class="form-label">Tel</label>
+                            <input type="text" class="form-control" id="tel" name="tel" aria-describedby="emailHelp">
+                            <div id="telHelper" class="form-text">Enter Tel.</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="head" class="form-label">Head</label>
+                            <input type="text" class="form-control" id="head" name="head" aria-describedby="emailHelp">
+                            <div id="headHelper" class="form-text">Enter Head.</div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp">
+                        <div id="addressHelper" class="form-text">Enter Address.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="desc" class="form-label">Description</label>
+                        <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+

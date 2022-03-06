@@ -41,7 +41,12 @@
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <!--                <li><a href="#" class="nav-link px-2 text-white">About</a></li>-->
+                <li><a href="/admin" class="nav-link px-2 text-secondary">Admin</a></li>
+
+                <li><a href="/dashboard" class="nav-link px-2 text-secondary">Dashboard</a></li>
+                <li><a href="/choosemajor" class="nav-link px-2 text-secondary disabled">Choose Major</a></li>
+                <li><a href="/planner" class="nav-link px-2 text-white">Course Planner</a></li>
+
             </ul>
 
 
@@ -59,12 +64,35 @@
 </header>
 {% block nav %}
 
+
 {% endblock %}
 
+<div class="container mt-3">
+    {% if error |length  %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> {{ error }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif  %}
+
+    {% if success |length  %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Congratulations!</strong> {{ success }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif  %}
+</div>
 
 {% block content %}{% endblock %}
 
+<div class="container">
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+        &copy; 2021
+    </footer>
+</div>
 <script src="/js/bootstrap.bundle.min.js"></script>
+{% block script %}{% endblock %}
 
 
 </body>

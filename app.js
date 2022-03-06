@@ -10,6 +10,8 @@ const indexRouter = require('./routes/indexRouter');
 const usersRouter = require('./routes/userRouter');
 const apiRouter = require('./routes/api');
 const authRouter = require('./routes/authRouter');
+const adminRouter = require('./routes/adminRouter');
+
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -82,7 +84,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 app.use('/auth', authRouter);
-
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

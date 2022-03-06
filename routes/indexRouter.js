@@ -4,6 +4,7 @@ const College = require("../models/college");
 const Major = require("../models/major");
 const Course = require("../models/course");
 const Helper = require("../util/helper");
+const {isAdmin} = require("../util/helper");
 const router = express.Router();
 
 /* GET home page. */
@@ -12,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get("/add_sample_data",  function (req,res) {
+router.get("/add_sample_data", Helper.isAdmin, function (req,res) {
 
   let rawdata = fs.readFileSync('./data.json');
   let colleges = JSON.parse(rawdata);

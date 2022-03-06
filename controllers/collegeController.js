@@ -23,7 +23,7 @@ exports.college_create_post = async function(req, res) {
 exports.college_delete = async function(req, res) {
     try {
         await College.deleteOne({ _id: req.params.id })
-        res.json({msg: "Entry has been deleted!"})
+        res.json({success: "Entry has been deleted!"})
     } catch {
         res.json({ error: "Entry doesn't exist!" })
     }
