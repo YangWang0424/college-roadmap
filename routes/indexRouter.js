@@ -116,7 +116,7 @@ router.post('/majordetail/:majorID',  Helper.isLoggedIn,(req, res) => {
     if (err){
       req.flash("err", err)
     }
-    req.user.major = major;
+    req.user.major = major.id;
     req.user.save(function (err) {
       if (err){
         req.flash("err", err)
@@ -128,9 +128,9 @@ router.post('/majordetail/:majorID',  Helper.isLoggedIn,(req, res) => {
 });
 
 router.get('/selectedmajor', Helper.isLoggedIn, (req, res) => {
-  if (req.user.major){
-    req.flash("success", "you already chosen a major!")
-    res.redirect('dashboard');
+  if (!req.user.major){
+    req.flash("success", "you have to chosen a major first!")
+    res.redirect('/dashboard');
   }
 
 
