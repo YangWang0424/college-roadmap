@@ -71,6 +71,10 @@ router.get('/dashboard', Helper.isLoggedIn, (req, res) => {
     req.flash('error', 'You dont have major yet, please choose your major first!')
     res.redirect("/choosemajor");
   }
+}); 
+
+router.get('/quiz', (req, res) => {
+  res.render('quiz');
 });
 
 
@@ -205,7 +209,92 @@ router.post('/choosecourse',  Helper.isLoggedIn,(req, res) => {
 
 });
 
+router.get('/q1', (req, res) => {
+  res.render('question1');
+});
 
+router.get('/q2', (req, res) => {
+  res.render('question2');
+});
+
+router.get('/q3', (req, res) => {
+  res.render('question3');
+});
+
+router.get('/q4', (req, res) => {
+  res.render('question4');
+});
+
+router.get('/q5', (req, res) => {
+  res.render('question5');
+});
+
+router.get('/q6', (req, res) => {
+  res.render('question6');
+});
+
+router.get('/q7', (req, res) => {
+  res.render('question7');
+});
+
+router.get('/q8', (req, res) => {
+  res.render('question8');
+});
+
+count1 = 0; // computer science
+count2 = 0; // civil engineering
+count3 = 0; // construction engineering management
+count4 = 0; // mechanical engineering
+count5 = 0; // environmental engineering
+count6 = 0; // chemical engineering
+
+router.get('/q1a', (req, res) => {
+  count2 ++;
+  count3 ++;
+  count4 ++;
+  res.render('question2');
+});
+
+router.get('/q1b', (req, res) => {
+  count6 ++;
+  res.render('question2');
+});
+
+router.get('/q1c', (req, res) => {
+  count1 ++;
+  res.render('question2');
+});
+
+router.get('/q1d', (req, res) => {
+  count5 ++;
+  res.render('question2');
+});
+
+router.get('/q2a', (req, res) => {
+  count1 ++;
+  if (count1 > count2){
+    count1 = 0;
+    count2 = 0;
+    res.render('result1');
+  } else {
+    count1 = 0;
+    count2 = 0;
+    res.render('result2')
+  }
+});
+
+router.get('/q2b', (req, res) => {
+  count2 ++;
+  if (count1 > count2){
+    count1 = 0;
+    count2 = 0;
+    res.render('result1');
+  } else {
+    count1 = 0;
+    count2 = 0;
+    res.render('result2')
+  }
+});
 
 
 
