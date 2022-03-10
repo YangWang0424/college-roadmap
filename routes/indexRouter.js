@@ -59,6 +59,10 @@ router.get('/signin', (req, res) => {
   res.render('signin');
 });
 
+router.get('/internships', (req, res) => {
+  res.render('internships');
+});
+
 router.get('/dashboard', Helper.isLoggedIn, (req, res) => {
   let user = req.user;
   // check if user has major
@@ -207,6 +211,10 @@ router.post('/choosecourse',  Helper.isLoggedIn,(req, res) => {
     res.redirect("/choosecourse")
   }
 
+});
+
+router.get('/majors', (req, res) => {
+  res.render('majors');
 });
 
 router.get('/q1', (req, res) => {
