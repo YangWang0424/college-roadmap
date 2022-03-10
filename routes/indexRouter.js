@@ -248,6 +248,7 @@ count4 = 0; // mechanical engineering
 count5 = 0; // environmental engineering
 count6 = 0; // chemical engineering
 
+// question 1
 router.get('/q1a', (req, res) => {
   count2 ++;
   count3 ++;
@@ -270,29 +271,549 @@ router.get('/q1d', (req, res) => {
   res.render('question2');
 });
 
+
+// question 2
 router.get('/q2a', (req, res) => {
   count1 ++;
-  if (count1 > count2){
-    count1 = 0;
-    count2 = 0;
-    res.render('result1');
-  } else {
-    count1 = 0;
-    count2 = 0;
-    res.render('result2')
-  }
+  count4 ++;
+  res.render('question3');
 });
 
 router.get('/q2b', (req, res) => {
+  count5 ++;
+  count6 ++;
+  res.render('question3');
+});
+
+router.get('/q2c', (req, res) => {
   count2 ++;
-  if (count1 > count2){
+  count3 ++;
+  res.render('question3');
+});
+
+
+
+// question 3
+router.get('/q3a', (req, res) => {
+  count1 ++;
+  count2 ++;
+  count4 ++;
+  count6 ++;
+  res.render('question4');
+});
+
+router.get('/q3b', (req, res) => {
+  count3 ++;
+  count5 ++;
+  res.render('question4');
+});
+
+
+// question 4
+router.get('/q4a', (req, res) => {
+  count4 ++;
+  count5 ++;
+  count6 ++;
+  res.render('question5');
+});
+
+router.get('/q4b', (req, res) => {
+  count1 ++;
+  count2 ++;
+  count3 ++;
+  res.render('question5');
+});
+
+
+// question 5
+router.get('/q5a', (req, res) => {
+  count1 ++;
+  res.render('question6');
+});
+
+router.get('/q5b', (req, res) => {
+  count2 ++;
+  count3 ++;
+  count5 ++;
+  res.render('question6');
+});
+
+router.get('/q5c', (req, res) => {
+  count4 ++;
+  res.render('question6');
+});
+
+router.get('/q5d', (req, res) => {
+  count6 ++;
+  res.render('question6');
+});
+
+
+// question 6
+router.get('/q6a', (req, res) => {
+  count2 ++;
+  count3 ++;
+  res.render('question7');
+});
+
+router.get('/q6b', (req, res) => {
+  count4 ++;
+  res.render('question7');
+});
+
+router.get('/q6c', (req, res) => {
+  count5 ++;
+  count6 ++;
+  res.render('question7');
+});
+
+router.get('/q6d', (req, res) => {
+  count1 ++;
+  res.render('question7');
+});
+
+
+router.get('/q7a', (req, res) => {
+  count1 ++;
+  count4 ++;
+  count6 ++;
+  if (count1 == 7){
     count1 = 0;
     count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
     res.render('result1');
-  } else {
+  }
+  else if (count2 == 7) {
     count1 = 0;
     count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
     res.render('result2')
+  }
+  else if (count3 == 7) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result3')
+  }
+  else if (count4 == 7) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result4')
+  }
+  else if (count5 == 7) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result5')
+  }
+  else if (count6 == 7) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result6')
+  }
+  else if (count1 == 6){
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result1');
+  }
+  else if (count2 == 6) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result2')
+  }
+  else if (count3 == 6) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result3')
+  }
+  else if (count4 == 6) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result4')
+  }
+  else if (count5 == 6) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result5')
+  }
+  else if (count6 == 6) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result6')
+  }
+  else if (count1 == 5){
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result1');
+  }
+  else if (count2 == 5) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result2')
+  }
+  else if (count3 == 5) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result3')
+  }
+  else if (count4 == 5) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result4')
+  }
+  else if (count5 == 5) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result5')
+  }
+  else if (count6 == 5) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result6')
+  }
+  else if (count1 == 4){
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result1');
+  }
+  else if (count2 == 4) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result2')
+  }
+  else if (count3 == 4) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result3')
+  }
+  else if (count4 == 4) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result4')
+  }
+  else if (count5 == 4) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result5')
+  }
+  else if (count6 == 4) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result6')
+  }
+});
+
+router.get('/q7b', (req, res) => {
+  count2 ++;
+  count3 ++;
+  count5 ++;
+  if (count1 == 7){
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result1');
+  }
+  else if (count2 == 7) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result2')
+  }
+  else if (count3 == 7) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result3')
+  }
+  else if (count4 == 7) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result4')
+  }
+  else if (count5 == 7) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result5')
+  }
+  else if (count6 == 7) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result6')
+  }
+  else if (count1 == 6){
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result1');
+  }
+  else if (count2 == 6) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result2')
+  }
+  else if (count3 == 6) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result3')
+  }
+  else if (count4 == 6) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result4')
+  }
+  else if (count5 == 6) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result5')
+  }
+  else if (count6 == 6) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result6')
+  }
+  else if (count1 == 5){
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result1');
+  }
+  else if (count2 == 5) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result2')
+  }
+  else if (count3 == 5) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result3')
+  }
+  else if (count4 == 5) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result4')
+  }
+  else if (count5 == 5) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result5')
+  }
+  else if (count6 == 5) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result6')
+  }
+  else if (count1 == 4){
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result1');
+  }
+  else if (count2 == 4) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result2')
+  }
+  else if (count3 == 4) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result3')
+  }
+  else if (count4 == 4) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result4')
+  }
+  else if (count5 == 4) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result5')
+  }
+  else if (count6 == 4) {
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    count4 = 0;
+    count5 = 0;
+    count6 = 0;
+    res.render('result6')
   }
 });
 
