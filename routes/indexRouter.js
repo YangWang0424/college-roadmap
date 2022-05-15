@@ -7,6 +7,8 @@ const Helper = require("../util/helper");
 const router = express.Router();
 const User =  require("../models/user");
 const { ObjectId } = require('mongodb');
+const majorController = require("../controllers/majorController");
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -213,8 +215,10 @@ router.post('/choosecourse',  Helper.isLoggedIn,(req, res) => {
 
 });
 
-router.get('/majors', (req, res) => {
-  res.render('majors');
+router.get('/majors', async (req, res) => {
+
+  const entries = await Major.find();
+  res.render('majors', {majors: entries});
 });
 
 router.get('/q1', (req, res) => {
