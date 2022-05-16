@@ -11,7 +11,7 @@ const usersRouter = require('./routes/userRouter');
 const apiRouter = require('./routes/api');
 const authRouter = require('./routes/authRouter');
 const adminRouter = require('./routes/adminRouter');
-
+const MongoStore = require('connect-mongo');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -61,14 +61,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // flash messages
 app.use(session({
-  name : 'codeil',
-  secret : 'something',
-  resave :false,
-  saveUninitialized: true,
-  cookie : {
-    maxAge:(86400)
-  }
-}));
+  secret:"ssasdada",
+  resave:false,
+  saveUninitialized:true,
+  store: MongoStore.create({
+    mongoUrl: 'mongodb://localhost/test-app',
+    autoRemove: 'interval',
+    autoRemoveInterval: 10 // In minutes. Default
+})}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
