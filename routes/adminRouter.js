@@ -256,5 +256,19 @@ router.get('/users', Helper.isAdmin,  async function (req, res, next) {
 });
 
 
+/* GET users listing. */
+router.get('/users/del/:userID', Helper.isAdmin,  async function (req, res, next) {
+    User.deleteOne({ _id: req.params.userID }, function (err) {
+        if (err) {
+            req.flash('error', "cant delete this user, something went wrong!")
+        }
+        req.flash('success', "deleted it succeed!")
+        res.redirect("/admin/users")
+    });
+
+});
+
+
+
 
 module.exports = router;

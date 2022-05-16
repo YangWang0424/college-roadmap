@@ -49,10 +49,9 @@
                                 {% for c in u.courses %}
                                     {{ c.name }},
                                 {% endfor %}
-
                             </td>
                             <td>
-                                <a href="/admin/delete_college/{{ c.id}}" class="btn btn-sm btn-danger">Delete</a>
+                                <a href="/admin/users/del/{{ u.id}}" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
                     {% endfor %}
