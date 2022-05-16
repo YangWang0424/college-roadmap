@@ -6,6 +6,7 @@ const Course = require("../models/course");
 const Helper = require("../util/helper");
 const router = express.Router();
 const collegeController = require("../controllers/collegeController");
+const User = require("../models/user");
 
 /* GET home page. */
 router.get('/', Helper.isAdmin, async function (req, res, next) {
@@ -244,6 +245,15 @@ router.post("/edit_course/:collegeID/:majorID/:courseID", Helper.isAdmin,  funct
 })
 
 
+
+/* GET users listing. */
+router.get('/users', Helper.isAdmin,  async function (req, res, next) {
+    User.find({}).populate("major").populate("courses").exec(function (err, users) {
+
+        res.render("admin_user.html", {error:req.flash('error'),success:req.flash('success'),users:users})
+    });
+
+});
 
 
 
